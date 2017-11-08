@@ -38,13 +38,12 @@ export default class Card extends Component {
     const style = Object.assign({
       transform: `translate3d(${this.state.initialPosition.x}px, ${this.state.initialPosition.y}px, 0px)`,
       zIndex: this.props.index,
-      backgroundImage: `url("${this.props.image}")`
+      backgroundImage: `url("${this.props.image}")`,
+      backgroundSize: `contain`,
     }, this.props.style);
 
     return (
       <div style={style} className={cx({ card: true }, this.props.classes)}>
-        <h1>{this.props.title}</h1>
-        <p>{this.props.text}</p>
       </div>
     );
   }

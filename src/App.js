@@ -1,44 +1,40 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import Tinderable from './Tinderable';
+import Navbar from './Navbar';
 
-import portrait1 from './img/portrait-1.jpg';
-import portrait2 from './img/portrait-2.jpg';
-import portrait3 from './img/portrait-3.jpg';
-import portrait4 from './img/portrait-4.jpg';
-
-console.log(portrait1) 
 class App extends Component {
   render() {
 
-    var cardsData = [
+    const cardsData = [
       {
-        title: 'A wonderful day',
-        text: '—— - ——— - - - ——— ———— - — ——— —— - ————— - - ———— —— - ——— - - - ——— ———— - — ——— —— -',
-        image: portrait1,
+        image: 'https://media.giphy.com/media/bq6F8QYqBU7Yc/giphy.gif',
         id: '1'
       },
       {
-        title: 'My amazing journey',
-        text: ' - — ——— —— - ————— - - ———— —— - ——— - - - ——— ———— - — ——— —— - ————— - - ——— - - - ——— ———— ',
-        image: portrait2,
+        image: 'https://media.giphy.com/media/cwTtbmUwzPqx2/giphy.gif',
         id: '2'
       },
       {
-        title: 'Three recipes without cocoa',
-        text: ' - — ——— —— - ————— - - ———— —— - ——— - - - ——— ———— - — ——— —— - ————— - - ——— - - - ———',
-        image: portrait3,
+        image: 'https://media.giphy.com/media/3oz8xqZsDaOSHaqLCw/giphy.gif',
         id: '3'
       },
       {
-        title: 'Generic clickbait title',
-        text: ' —— ———— - — ——— —— - ————— - - ———— —— - ——— - - - ——— ———— - — ——— —— - ————— - - ———— —— - ——— - - - ——— ———— - — ——— —— - ————— - - ———— - ——— ',
-        image: portrait4,
+        image: 'https://media.giphy.com/media/3o6fJ4kHPTdebCt9w4/giphy.gif',
         id: '4'
       }
     ];
+
     return (
       <div className="App">
-        <Tinderable initialCardsData={cardsData} />
+        <Navbar />
+        <div>
+          <Switch>
+            <Route exact path="/" render={() => <Tinderable initialCardsData={cardsData} />} />
+            {/* <Route exact path="/matches" component={Matches} />
+            <Route exact path="/getlucky" component={Getlucky} /> */}
+          </Switch>
+        </div>
       </div>
     );
   }

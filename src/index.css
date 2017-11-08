@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 html {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -8,19 +10,30 @@ html {
 }
 
 body {
+  background-image: url('./img/background.jpeg');
   margin: 0 auto;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   min-height: 1000px;
-  max-width: 800px;
+  max-width: 1000px;
 }
 
-@media (min-width: 801px) {
+.rainbow {
+  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 5em;
+  margin-right: 1em;
+}
+
+/* @media (min-width: 801px) {
   body {
       border: 1px solid black;
   }
-}
+} */
 
 img {
   width: 100%;
@@ -31,6 +44,7 @@ li {
 }
 
 #root {
+  margin-top: 50px;
   position: relative;
   height: 100vh;
   min-height: 600px;
@@ -39,7 +53,7 @@ li {
 }
 
 .card {
-  background-color: white;
+  background-color: black;
   background-size: cover;
   box-shadow: 0px 0px 5px black;
   position: absolute;
@@ -75,6 +89,7 @@ li {
   background: red;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
+  margin-top: 200px;
 }
 
 .alert-left {
@@ -82,4 +97,22 @@ li {
   background: orange;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
+  margin-top: 200px;
+}
+
+.logo {
+  text-decoration: none;
+  font-size: 7em;
+  color: snow;
+  margin-right: 1em;
+}
+
+.main-btn {
+  text-decoration: none;
+  color: snow;
+  font-size: 1em;
+  margin-right: 2em;
+  padding: 10px;
+  border-style: solid;
+  border-color: snow;
 }
