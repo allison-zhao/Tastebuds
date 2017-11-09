@@ -2,29 +2,10 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Tinderable from './Tinderable';
 import Navbar from './Navbar';
+import cardsData from './Data';
 
-class App extends Component {
+export default class App extends Component {
   render() {
-
-    const cardsData = [
-      {
-        image: 'https://media.giphy.com/media/bq6F8QYqBU7Yc/giphy.gif',
-        id: '1'
-      },
-      {
-        image: 'https://media.giphy.com/media/cwTtbmUwzPqx2/giphy.gif',
-        id: '2'
-      },
-      {
-        image: 'https://media.giphy.com/media/3oz8xqZsDaOSHaqLCw/giphy.gif',
-        id: '3'
-      },
-      {
-        image: 'https://media.giphy.com/media/3o6fJ4kHPTdebCt9w4/giphy.gif',
-        id: '4'
-      }
-    ];
-
     return (
       <div className="App">
         <Navbar />
@@ -39,6 +20,3 @@ class App extends Component {
     );
   }
 }
-
-
-export default App;

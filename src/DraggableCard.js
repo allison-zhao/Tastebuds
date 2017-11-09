@@ -69,15 +69,15 @@ export default class DraggableCard extends Component {
     ev.preventDefault();
     switch (ev.type) {
       case 'panstart':
-        this.panstart.call(this);
+        this.panstart();
         break;
 
       case 'panend':
-        this.panend.call(this, ev);
+        this.panend(ev);
         break;
 
       case 'panmove':
-        this.panmove.call(this, ev);
+        this.panmove(ev);
         break
 
       default:

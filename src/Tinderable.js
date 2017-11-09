@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import cx from 'classnames';
 import Card from './Card';
 import DraggableCard from './DraggableCard';
+import MatchOverlay from './MatchOverlay';
 
 export default class Tinderable extends Component {
   constructor(props) {
@@ -10,27 +10,33 @@ export default class Tinderable extends Component {
     this.state = {
       cards: this.props.initialCardsData,
       alertLeft: false,
-      alertRight: false
+      alertRight: false,
+      liked: []
     };
 
     this.removeCardLeft = this.removeCard.bind(this, 'left');
     this.removeCardRight = this.removeCard.bind(this, 'right');
+    this.keepSwiping = this.keepSwiping.bind(this);
   }
 
   removeCard(side, cardId) {
-    setTimeout(function () {
-      if (side === 'left') {
-        this.setState({ alertLeft: false });
-      } else if (side === 'right') {
-        this.setState({ alertRight: false });
-      }
-    }.bind(this), 3000);
+    side === 'right' ?
+      this.setState((state) => ({
+        cards: state.cards.filter(c => c.id !== cardId),
+        alertLeft: side === 'left',
+        alertRight: side === 'right',
+        liked: [...state.liked, cardId]
+      }))
+      :
+      this.setState((state) => ({
+        cards: state.cards.filter(c => c.id !== cardId),
+        alertLeft: side === 'left',
+        alertRight: side === 'right'
+      }))
+  }
 
-    this.setState((state) => ({
-      cards: state.cards.filter(c => c.id !== cardId),
-      alertLeft: side === 'left',
-      alertRight: side === 'right'
-    }))
+  keepSwiping(){
+    this.setState({liked: [...this.state.liked, 0]})
   }
 
   render() {
@@ -39,7 +45,6 @@ export default class Tinderable extends Component {
         key: c.id,
         cardId: c.id,
         index,
-        title: c.title,
         text: c.text,
         image: c.image,
         onOutScreenLeft: this.removeCardLeft,
@@ -47,16 +52,18 @@ export default class Tinderable extends Component {
       };
 
       const Element = (index === (arr.length - 1) ? DraggableCard : Card);
-      return <Element {...props} />;
+      return <Element {...props} key={this.props.key} />;
     });
 
     return (
       <div>
-        <div className={cx('alert-left', 'alert', { 'alert-visible': this.state.alertLeft })}>left</div>
-        <div className={cx('alert-right', 'alert', { 'alert-visible': this.state.alertRight })}>right</div>
         <div id="cards">
           {cards}
         </div>
+        {this.state.liked.length === 2 ?
+          <MatchOverlay keepSwiping={this.keepSwiping} />
+          : null
+        } 
       </div>
     )
   }

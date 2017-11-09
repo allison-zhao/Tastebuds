@@ -40,10 +40,12 @@ export default class Card extends Component {
       zIndex: this.props.index,
       backgroundImage: `url("${this.props.image}")`,
       backgroundSize: `contain`,
+      backgroundRepeat: `no-repeat`
     }, this.props.style);
 
     return (
       <div style={style} className={cx({ card: true }, this.props.classes)}>
+        <p>{this.props.text}</p>
       </div>
     );
   }
