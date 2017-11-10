@@ -60,10 +60,8 @@ export default class Tinderable extends Component {
         <div id="cards">
           {cards}
         </div>
-        {this.state.liked.length === 2 ?
-          <MatchOverlay keepSwiping={this.keepSwiping} />
-          : null
-        } 
+        {this.state.liked.length === 2 ? <MatchOverlay keepSwiping={this.keepSwiping} person={'jerry'} /> : null}
+        {this.state.liked.length === 6 ? <MatchOverlay keepSwiping={this.keepSwiping} person={'philip'} /> : null}
       </div>
     )
   }
