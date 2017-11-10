@@ -45,7 +45,7 @@ export default class Card extends Component {
 
     return (
       <div style={style} className={cx({ card: true }, this.props.classes)}>
-        <p>{this.props.text}</p>
+        <p className="food-name">{this.props.text}</p>
       </div>
     );
   }

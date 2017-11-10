@@ -36,7 +36,7 @@ body {
   margin-top: 50px;
   position: relative;
   height: 900px;
-  max-height: 1000px;
+  max-height: 3000px;
   overflow: hidden;
 }
 
@@ -92,7 +92,7 @@ body {
   box-shadow: 0px 0px 20px snow;
 }
 
-p {
+.food-name {
   font-family: 'Amatic SC', cursive;
   font-size: 2em;
   color: snow;
@@ -137,4 +137,46 @@ p {
   height: 40%;
 }
 
+.eren-profile-pic {
+  width: 10%;
+  height: 10%;
+}
 
+.jerry-match-profile-pic {
+  width: 10%;
+  height: 10%;
+}
+
+.philip-match-profile-pic {
+  width: 10%;
+  height: 10%;
+}
+
+.matches-container {
+  background-color: snow;
+  box-shadow: 0px 0px 10px snow;
+  border-radius: 10px;
+  margin-top: 1em;
+  max-height: 2000px;
+}
+
+.matches-des {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.2em;
+  width: 80%;
+  padding-bottom: 1em;
+}
+
+.matches-name {
+  font-size: 1.5em;
+}
+
+.matches-profile {
+  padding-top: 2em;
+}
+
+.matches-content {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}

@@ -9,7 +9,7 @@ import macaroon from './img/macaroon.png'
 import pancakes from './img/pancakes.png'
 import ramen from './img/ramen.png'
 
-const cardsData = [
+export const cardsData = [
   {
     image: carrotcake,
     id: '1',
@@ -53,7 +53,7 @@ const cardsData = [
   {
     image: pancakes,
     id: '9',
-    text: 'Pancakes'
+    text: 'Waffles'
   },
   {
     image: ramen,
@@ -62,4 +62,13 @@ const cardsData = [
   },
 ];
 
-export default cardsData;
+//-------------------------------------------------------------------------
+
+export const matchesData = [
+  {
+    id: 1,
+    name: 'Eren',
+    description: 'I love Chop\'t! Salads are the best! Also a big fan of Artichoke Pizza.',
+    age: 26
+  }
+]

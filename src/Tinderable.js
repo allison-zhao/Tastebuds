@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Card from './Card';
 import DraggableCard from './DraggableCard';
 import MatchOverlay from './MatchOverlay';
+import { matchesData } from './Data';
+// import { connect } from 'react-redux';
+// import { addMatch } from './reducer';
 
 export default class Tinderable extends Component {
   constructor(props) {
@@ -35,8 +38,8 @@ export default class Tinderable extends Component {
       }))
   }
 
-  keepSwiping(){
-    this.setState({liked: [...this.state.liked, 0]})
+  keepSwiping() {
+    this.setState({ liked: [...this.state.liked, 0] })
   }
 
   render() {
@@ -52,7 +55,7 @@ export default class Tinderable extends Component {
       };
 
       const Element = (index === (arr.length - 1) ? DraggableCard : Card);
-      return <Element {...props} key={this.props.key} />;
+      return <Element {...props} key={props.key} />;
     });
 
     return (
@@ -60,9 +63,30 @@ export default class Tinderable extends Component {
         <div id="cards">
           {cards}
         </div>
-        {this.state.liked.length === 2 ? <MatchOverlay keepSwiping={this.keepSwiping} person={'jerry'} /> : null}
-        {this.state.liked.length === 6 ? <MatchOverlay keepSwiping={this.keepSwiping} person={'philip'} /> : null}
+
+        {this.state.liked.length === 2 && matchesData.push({id: 2, name: 'Jerry', description: 'Banana chicken is an amazing innovation', age: 27})
+         && <MatchOverlay keepSwiping = {this.keepSwiping } person={'jerry'} />
+        }
+        {this.state.liked.length === 6 && matchesData.push({id: 3, name: 'Philip', description: 'I make some mean pancakes and artisan cocktails. Love all kinds of Japanese food.', age: 28})
+         && <MatchOverlay keepSwiping={this.keepSwiping} person={'philip'} />}
       </div>
     )
   }
 }
+
+
+// const mapStateToProps = (state) => {
+//   return {
+//     matches: state.matches
+//   }
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     addAMatch(person) {
+//       dispatch(addMatch(person))
+//     }
+//   }
+// }
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Tinderable)
