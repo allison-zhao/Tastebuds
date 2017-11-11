@@ -16,7 +16,7 @@ export default class FacebookLogin extends Component {
         this.setState({ loggedIn: true })
       }
       else {
-        window.FB.login();
+        window.FB.login(() => this.setState({ loggedIn: true }));
       }
     });
   }
