@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import Card from './Card';
 import DraggableCard from './DraggableCard';
 import MatchOverlay from './MatchOverlay';
-import { matchesData } from './Data';
-// import { connect } from 'react-redux';
-// import { addMatch } from './reducer';
+import { matchesData, likedFoods } from './Data';
 
 export default class Tinderable extends Component {
   constructor(props) {
@@ -13,8 +11,7 @@ export default class Tinderable extends Component {
     this.state = {
       cards: this.props.initialCardsData,
       alertLeft: false,
-      alertRight: false,
-      liked: []
+      alertRight: false
     };
 
     this.removeCardLeft = this.removeCard.bind(this, 'left');
@@ -23,40 +20,45 @@ export default class Tinderable extends Component {
   }
 
   removeCard(side, cardId) {
-    side === 'right' ?
+    this.props.markCardAsSeen(cardId);
+    if (side === 'right') {
+      likedFoods.push(cardId);
       this.setState((state) => ({
         cards: state.cards.filter(c => c.id !== cardId),
         alertLeft: side === 'left',
-        alertRight: side === 'right',
-        liked: [...state.liked, cardId]
-      }))
-      :
+        alertRight: side === 'right'
+      }));
+    } else {
       this.setState((state) => ({
         cards: state.cards.filter(c => c.id !== cardId),
         alertLeft: side === 'left',
         alertRight: side === 'right'
       }))
+    }
   }
 
   keepSwiping() {
-    this.setState({ liked: [...this.state.liked, 0] })
+    likedFoods.push('0');
+    this.setState({alertLeft: true});
   }
 
   render() {
-    const cards = this.state.cards.map((c, index, arr) => {
-      const props = {
-        key: c.id,
-        cardId: c.id,
-        index,
-        text: c.text,
-        image: c.image,
-        onOutScreenLeft: this.removeCardLeft,
-        onOutScreenRight: this.removeCardRight
-      };
+    const cards = this.state.cards
+      .filter(c => !this.props.seenCards.includes(c.id))
+      .map((c, index, arr) => {
+        const props = {
+          key: c.id,
+          cardId: c.id,
+          index,
+          text: c.text,
+          image: c.image,
+          onOutScreenLeft: this.removeCardLeft,
+          onOutScreenRight: this.removeCardRight
+        };
 
-      const Element = (index === (arr.length - 1) ? DraggableCard : Card);
-      return <Element {...props} key={props.key} />;
-    });
+        const Element = (index === (arr.length - 1) ? DraggableCard : Card);
+        return <Element {...props} key={props.key} />;
+      });
 
     return (
       <div>
@@ -64,29 +66,13 @@ export default class Tinderable extends Component {
           {cards}
         </div>
 
-        {this.state.liked.length === 2 && matchesData.push({id: 2, name: 'Jerry', description: 'Banana chicken is an amazing innovation', age: 27})
-         && <MatchOverlay keepSwiping = {this.keepSwiping } person={'jerry'} />
-        }
-        {this.state.liked.length === 6 && matchesData.push({id: 3, name: 'Philip', description: 'I make some mean pancakes and artisan cocktails. Love all kinds of Japanese food.', age: 28})
-         && <MatchOverlay keepSwiping={this.keepSwiping} person={'philip'} />}
+        {likedFoods.length === 2 && matchesData.push({ id: 2, name: 'Jerry', description: 'Banana chicken is an amazing innovation', age: 27 })
+          && <MatchOverlay keepSwiping={this.keepSwiping} person={'jerry'} />}
+
+        {likedFoods.length === 5 && matchesData.push({ id: 3, name: 'Philip', description: 'I make some mean pancakes and artisan cocktails. Love all kinds of Japanese food.', age: 28 })
+          && <MatchOverlay keepSwiping={this.keepSwiping} person={'philip'} />}
+
       </div>
     )
   }
 }
-
-
-// const mapStateToProps = (state) => {
-//   return {
-//     matches: state.matches
-//   }
-// }
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     addAMatch(person) {
-//       dispatch(addMatch(person))
-//     }
-//   }
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Tinderable)

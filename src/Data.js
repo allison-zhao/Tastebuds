@@ -62,6 +62,14 @@ export const cardsData = [
   },
 ];
 
+export const seenCards = localStorage.hasOwnProperty('seenCards') ? JSON.parse(localStorage.getItem('seenCards')) : [];
+export const markCardAsSeen = (id) => {
+  if (!seenCards.includes(id)) {
+    seenCards.push(id);
+    localStorage.setItem('seenCards', JSON.stringify(seenCards));
+  }
+};
+
 //-------------------------------------------------------------------------
 
 export const matchesData = [
@@ -72,3 +80,5 @@ export const matchesData = [
     age: 26
   }
 ]
+
+export const likedFoods = []

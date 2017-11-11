@@ -3,11 +3,6 @@ import jerry from './img/jerry.png'
 import philip from './img/philip.png'
 
 export default class MatchOverlay extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
     return (
       <div className="matchoverlay">

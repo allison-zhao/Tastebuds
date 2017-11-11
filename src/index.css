@@ -22,16 +22,6 @@ body {
   max-width: 1000px;
 }
 
-/* @media (min-width: 801px) {
-  body {
-      border: 1px solid black;
-  }
-} */
-
-/* img {
-  width: 100%;
-} */
-
 #root {
   margin-top: 50px;
   position: relative;

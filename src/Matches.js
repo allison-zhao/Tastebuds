@@ -6,7 +6,7 @@ import philip from './img/philip.png'
 const Matches = ({ matchesData }) => (
   <div className="matches-container">
     {matchesData && matchesData.map(person => (
-      <div className="matches-content">
+      <div className="matches-content" key={person.id}>
         <div className="matches-profile">
           {person.name === 'Eren' && <img src={eren} className="eren-profile-pic" alt="eren-profile-pic" />}
           {person.name === 'Jerry' && <img src={jerry} className="jerry-match-profile-pic" alt="jerry-profile-pic" />}
