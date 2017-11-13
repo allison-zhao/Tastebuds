@@ -2,6 +2,21 @@
   "name": "tinderable",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": {
+    "/api/yelp": {
+      "target": "https://api.yelp.com",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api/yelp" : ""
+      }
+    }
+  },
   "dependencies": {
     "bulma": "^0.6.1",
     "classnames": "^2.2.5",
@@ -16,12 +31,6 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "babel-polyfill": "^6.26.0",

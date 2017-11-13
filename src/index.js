@@ -2,11 +2,11 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
-import Login from './Login';
+import FacebookLogin from './Login';
 
 render(
     <Router>
-      <Login />
+      <FacebookLogin />
     </Router>,
   document.getElementById('root')
 );

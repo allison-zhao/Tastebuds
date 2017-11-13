@@ -170,3 +170,22 @@ body {
   margin-top: 2em;
   margin-bottom: 2em;
 }
+
+.rec-container {
+  background-color: snow;
+  margin-top: 2em;
+}
+
+.rec-grid {
+  display: inline-block;
+  width: 50%;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.res-title {
+  text-decoration: none;
+  color: #fcb315;
+  font-size: 2em;
+  font-style: bold;
+}

@@ -69,7 +69,7 @@ export default class Tinderable extends Component {
         {likedFoods.length === 2 && matchesData.push({ id: 2, name: 'Jerry', description: 'Banana chicken is an amazing innovation', age: 27 })
           && <MatchOverlay keepSwiping={this.keepSwiping} person={'jerry'} />}
 
-        {likedFoods.length === 5 && matchesData.push({ id: 3, name: 'Philip', description: 'I make some mean pancakes and artisan cocktails. Love all kinds of Japanese food.', age: 28 })
+        {likedFoods.length === 6 && matchesData.push({ id: 3, name: 'Philip', description: 'I make some mean pancakes and artisan cocktails. Love all kinds of Japanese food.', age: 28 })
           && <MatchOverlay keepSwiping={this.keepSwiping} person={'philip'} />}
 
       </div>
