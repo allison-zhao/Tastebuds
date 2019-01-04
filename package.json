@@ -13,31 +13,31 @@
       "target": "https://api.yelp.com",
       "changeOrigin": true,
       "pathRewrite": {
-        "^/api/yelp" : ""
+        "^/api/yelp": ""
       }
     }
   },
   "dependencies": {
-    "bulma": "^0.6.1",
-    "classnames": "^2.2.5",
-    "eslint-config-fullstack": "^3.0.0",
+    "bulma": "^0.7.2",
+    "classnames": "^2.2.6",
+    "eslint-config-fullstack": "^6.0.0",
     "hammerjs": "^2.0.8",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-redux": "^5.0.6",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17",
-    "redux": "^3.7.2",
-    "redux-devtools-extension": "^2.13.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^2.1.3",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.7",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.2",
-    "babel-loader": "^7.1.2",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1"
   }
