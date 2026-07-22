@@ -1,19 +1,32 @@
 # TasteBuds
 
-This project was built in 4 days for a personal hackthon project at Fullstack Academy, November 2017.
+> **Archived project:** Built in four days during a personal hackathon at Fullstack Academy in November 2017. This project is no longer maintained, and its dependencies and external integrations may be outdated.
 
-![Walkthrough GIF](https://github.com/leahzxxz/Tastebuds/blob/master/public/walkthrough.gif)
+TasteBuds is a swipe-based web application that matches users based on shared food preferences.
 
-All illustration of food by artist & illustrator, Kendyll Hillegas. Check out her awesome [Etsy shop](https://www.etsy.com/shop/KendyllHillegas)
+![TasteBuds walkthrough](https://github.com/leahzxxz/Tastebuds/blob/master/public/walkthrough.gif)
 
-Background image by Justin Wong. Check out her work on [Dribbble](https://dribbble.com/patternsandportraits)
-## Development
+## Technology
 
-To run locally, use ```npm install``` then start the server with ```npm start``` and visit http://localhost:3000
+- React with Create React App
+- Facebook Login API
+- Yelp Business Search API
 
-Frameworks used: React (Create-React-App), Facebook OAuth Login API, Yelp Business Search API
+## Running Locally
 
+The project originally used npm:
 
+```bash
+npm install
+npm start
+```
 
+Then visit [http://localhost:3000](http://localhost:3000).
 
+Because this project is archived, it may require older versions of Node.js or other dependencies. The Facebook and Yelp integrations may no longer function with their current APIs.
 
+## Artwork Credits
+
+Food illustrations are by artist and illustrator Kendyll Hillegas. Visit her [Etsy shop](https://www.etsy.com/shop/KendyllHillegas).
+
+The background image is by Justin Wong. View her work on [Dribbble](https://dribbble.com/patternsandportraits).
